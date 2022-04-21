@@ -1,0 +1,7 @@
+#!/usr/bin/env ash
+
+if [ $# -gt 0 ]; then
+  exec "$@"
+else
+  exec /usr/bin/supervisord -c /etc/supervisord.conf
+fi

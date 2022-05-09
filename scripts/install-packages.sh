@@ -17,4 +17,5 @@ apk add --update --no-cache \
   su-exec \
   sudo \
   nginx \
-  supervisor
+  supervisor \
+  imap-dev

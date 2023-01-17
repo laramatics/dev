@@ -13,7 +13,7 @@
 
 ## About
 
-This repository contains all features of [laramatics/dev](https://github.com/laramatics/dev)
+This repository contains all features of [laramatics/container](https://github.com/laramatics/container)
 and [laramatics/gitlab-ci](https://github.com/laramatics/app) to give you full features needed
 to start developing your next awesome project.
 

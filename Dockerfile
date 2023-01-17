@@ -1,5 +1,5 @@
-ARG NODE_VERSION=18-alpine
-ARG PHP_VERSION=8.1-fpm-alpine
+ARG NODE_VERSION=19-alpine
+ARG PHP_VERSION=8.2-fpm-alpine
 FROM node:${NODE_VERSION} AS node
 FROM php:${PHP_VERSION}
 LABEL maintainer="Pezhvak <pezhvak@imvx.org>"
@@ -10,6 +10,7 @@ WORKDIR /var/www/html
 # Copy PHP Extension Installer (https://github.com/mlocati/docker-php-extension-installer)
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions
+COPY /configs/php.ini "$PHP_INI_DIR/conf.d/laramatics-container.ini"
 
 # Copy NodeJS
 COPY --from=node /usr/local/bin/node /usr/local/bin/
@@ -38,6 +39,7 @@ RUN rm -rf /tmp/*
 
 # Serving
 EXPOSE 80
+EXPOSE 5173
 
 # Services supervisor config
 COPY ./configs/supervisord.conf /etc/supervisor.d/supervisord.conf
